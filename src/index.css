@@ -1,0 +1,52 @@
+.main-area {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.main-area > * {
+  border: #6ea9d0 solid 1px;
+  margin: 0.1em 0.1em;
+  padding: 0.4em;
+  justify-content: flex-start;
+  min-height: 25em;
+
+
+}
+
+#CueBox {
+  width: 25%;
+  max-width: 25%;
+}
+
+#NotesBox {
+  width: 75%;
+}
+
+img {
+  max-width: 100%;
+}
+
+#Title {
+  border: solid 1px #6ea9d0;
+  margin: 0.1em 0.1em;
+  padding: 0.4em;
+  justify-content: flex-start;
+  margin-bottom: 0.5em;
+}
+
+#Summary {
+  border: solid 1px #6ea9d0;
+  margin: 0.1em 0.1em;
+  padding: 0.4em;
+  justify-content: flex-start;
+  min-height: 4em;
+  margin-top: 0.5em;
+
+}
+
+Body {
+  padding: 2em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
