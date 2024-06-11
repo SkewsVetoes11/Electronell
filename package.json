@@ -1,5 +1,5 @@
 {
-  "name": "react-electronell",
+  "name": "ernell",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,17 +8,18 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "tauri": "tauri"
   },
   "dependencies": {
     "@tinymce/tinymce-react": "^5.0.1",
     "downloadjs": "^1.4.7",
-    "html2canvas": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tinymce": "^7.1.2"
   },
   "devDependencies": {
+    "@tauri-apps/cli": "^1.5.14",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
