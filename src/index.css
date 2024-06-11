@@ -18,9 +18,17 @@
   width: 25%;
   max-width: 25%;
 }
-
+#CueBox > div {
+  height: 100% !important;
+  overflow: hidden !important;
+}
 #NotesBox {
   width: 75%;
+}
+
+#NotesBox > div {
+  height: 100% !important;
+  overflow: hidden !important;
 }
 
 img {
@@ -35,6 +43,11 @@ img {
   margin-bottom: 0.5em;
 }
 
+#Title > div {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
 #Summary {
   border: solid 1px #6ea9d0;
   margin: 0.1em 0.1em;
@@ -44,7 +57,10 @@ img {
   margin-top: 0.5em;
 
 }
-
+#Summary > div {
+  height: 100% !important;
+  overflow: hidden !important;
+}
 Body {
   padding: 2em;
   font-family: Arial, Helvetica, sans-serif;
