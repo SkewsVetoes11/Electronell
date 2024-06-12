@@ -20,7 +20,8 @@
     "html2canvas": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tinymce": "^7.1.2"
+    "tinymce": "^7.1.2",
+    "vite": "^5.2.0"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.5.14",

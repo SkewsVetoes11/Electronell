@@ -6,9 +6,7 @@ import TitleBox from './components/TitleBox.jsx'
 import downloadjs from 'downloadjs';
 import html2canvas from 'html2canvas';
 import './index.css'
-import { invoke } from '@tauri-apps/api/tauri'
 import { save } from '@tauri-apps/api/dialog'
-import { writeBinaryFile, BaseDirectory } from '@tauri-apps/api/fs';
 const saveFile = async () =>
     {
         try{
