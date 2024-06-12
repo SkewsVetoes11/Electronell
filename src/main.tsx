@@ -1,7 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+//@ts-ignore
 import App from './App.jsx'
+//@ts-ignore
+
 import CueBox from './components/CueBox.jsx'
+//@ts-ignore
+
 import TitleBox from './components/TitleBox.jsx'
 
 import './index.css'

@@ -1,4 +1,4 @@
-import {app, BrowserWindow, Menu, shell, dialog} from 'electron'
+import {app, BrowserWindow, Menu, dialog} from 'electron'
 
 import {createRequire} from 'node:module'
 import {fileURLToPath} from 'node:url'
@@ -6,7 +6,6 @@ import path from 'node:path'
 
 const require = createRequire(import.meta.url)
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const {ptp} = require('pdf-to-printer')
 const fs = require('node:fs')
 // The built directory structure
 //
@@ -26,7 +25,7 @@ export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist')
 
 process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 'public') : RENDERER_DIST
 
-let win: BrowserWindow | null
+let win: BrowserWindow | null;
 const isMac = process.platform === 'darwin'
 
 const template = [
@@ -62,7 +61,9 @@ const template = [
                     let savePath = dialog.showSaveDialog(options);
                     savePath.then((result) => {
                         console.log(result["filePath"])
+                        //@ts-ignore
                         win.webContents.printToPDF({}).then(data => {
+                            //@ts-ignore
                             fs.writeFile(result["filePath"], data, (error) => {
                                 if (error) throw error
                                 console.log(`Wrote PDF successfully to ${result["filePath"]}`)
@@ -153,6 +154,7 @@ const template = [
     }
 ]
 
+//@ts-ignore
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 
