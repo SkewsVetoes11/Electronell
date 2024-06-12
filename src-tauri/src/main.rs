@@ -1,6 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
-use tauri::{CustomMenuItem, Menu, MenuItem, Submenu};
+use std::fs;
+
+use tauri::{CustomMenuItem, Menu, Submenu};
 
 fn main() {
 
@@ -15,6 +17,8 @@ fn main() {
   .add_submenu(submenu).add_submenu(about_submenu);
   tauri::Builder::default()
     .menu(menu)
+    .invoke_handler(tauri::generate_handler![save_file])
+    // .plugin(tauri_plugin_store::Builder::default().build())
     .on_menu_event(|event| {
       match event.menu_item_id() {
         "quit" => {
@@ -27,4 +31,14 @@ fn main() {
       }})
     .run(tauri::generate_context!())
     .expect("error while running tauri application");
+}
+
+#[tauri::command]
+fn save_file(path: String, contents: String)
+{
+  println!("{}, {}", path, contents);
+
+  // let x = base64::Engine::decode(&self, contents);
+  // let y = image::load_from_memory_with_format(x, "png");
+  // fs::write(path, y).unwrap();
 }
