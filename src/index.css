@@ -7,11 +7,8 @@
 .main-area > * {
   border: #6ea9d0 solid 1px;
   margin: 0.1em 0.1em;
-  padding: 0.4em;
   justify-content: flex-start;
   min-height: 25em;
-
-
 }
 
 #CueBox {
@@ -21,6 +18,7 @@
 #CueBox > div {
   height: 100% !important;
   overflow: hidden !important;
+  padding: 0 0.3em;
 }
 #NotesBox {
   width: 75%;
@@ -29,6 +27,7 @@
 #NotesBox > div {
   height: 100% !important;
   overflow: hidden !important;
+  padding: 0 0.3em;
 }
 
 img {
@@ -38,7 +37,6 @@ img {
 #Title {
   border: solid 1px #6ea9d0;
   margin: 0.1em 0.1em;
-  padding: 0.4em;
   justify-content: flex-start;
   margin-bottom: 0.5em;
 }
@@ -46,12 +44,13 @@ img {
 #Title > div {
   height: 100% !important;
   overflow: hidden !important;
+  padding: 0 0.3em;
+
 }
 
 #Summary {
   border: solid 1px #6ea9d0;
   margin: 0.1em 0.1em;
-  padding: 0.4em;
   justify-content: flex-start;
   min-height: 4em;
   margin-top: 0.5em;
@@ -60,6 +59,8 @@ img {
 #Summary > div {
   height: 100% !important;
   overflow: hidden !important;
+  padding: 0 0.3em;
+
 }
 Body {
   font-family: Arial, Helvetica, sans-serif;
@@ -68,5 +69,4 @@ Body {
 .captureArea
 {
   padding: 1.2em;
-
 }
