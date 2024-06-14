@@ -1,4 +1,4 @@
-import {useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import {Editor} from '@tinymce/tinymce-react';
 // import './App.css';
 
@@ -9,6 +9,15 @@ export default function App() {
     //         console.log(editorRef.current.getContent());
     //     }
     // };
+    useEffect(() => {
+        window.addEventListener("beforeunload", function (e) {
+            var confirmationMessage = 'It looks like you have been editing something. '
+                + 'If you leave before saving, your changes will be lost.';
+
+            (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+            return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
+        });
+    }, []);
 
     return (
         <>
@@ -26,7 +35,6 @@ export default function App() {
                         toolbar: false,
                         menubar: false,
                         inline: true,
-                        border: "solid 1px"
                     }}
                 />
             </div>
