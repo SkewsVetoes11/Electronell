@@ -33,12 +33,16 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </div>
         <TitleBox type={"Summary"}/>
         </div>
-        <button onClick={handleCaptureClick}>Export as image</button>
-        <div id="hints"><br></br>
-        <button onClick={handleHideHints}>Hide Hints</button>
+        <button className={"button-1"} onClick={handleCaptureClick}>Export as image</button>
+        <br></br>
+        <br></br>
+
+        <div id="hints">
+        <button className='button-1' onClick={handleHideHints}>Hide Hints</button>
         <p>Export as image might not function properly when WebGL is disabled in your Brower! Check if export works properly before entering your notes.</p>
         <p>As of now, you could save your progress by using browser extension like <a href='https://chromewebstore.google.com/detail/singlefile/mpiodijhokgodhhofbcjdecpffjipkle'>SingleFile</a>.</p>
 </div>
         
     </React.StrictMode>
 )
+
