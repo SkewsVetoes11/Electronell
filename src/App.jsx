@@ -1,44 +1,59 @@
-import {useEffect, useRef} from 'react';
-import {Editor} from '@tinymce/tinymce-react';
-// import './App.css';
+import NotesBox from "./components/NotesBox.jsx";
+
+import CueBox from "./components/CueBox.jsx";
+import TitleBox from "./components/TitleBox.jsx";
+import downloadjs from "downloadjs";
+import html2canvas from "html2canvas";
 
 export default function App() {
-    const editorRef = useRef(null);
-    // const log = () => {
-    //     if (editorRef.current) {
-    //         console.log(editorRef.current.getContent());
-    //     }
-    // };
-    useEffect(() => {
-        window.addEventListener("beforeunload", function (e) {
-            var confirmationMessage = 'It looks like you have been editing something. '
-                + 'If you leave before saving, your changes will be lost.';
+  const handleCaptureClick = async () => {
+    const canvas = await html2canvas(document.querySelector(".captureArea"));
+    const dataURL = canvas.toDataURL("image/png");
+    var titleString =
+      document.querySelector("#Title").firstChild.firstChild.textContent;
+    downloadjs(dataURL, titleString, "image/png");
+  };
 
-            (e || window.event).returnValue = confirmationMessage; //Gecko + IE
-            return confirmationMessage; //Gecko + Webkit, Safari, Chrome etc.
-        });
-    }, []);
+  const handleHideHints = () => {
+    document.querySelector("#hints").style.visibility = "hidden";
+  };
+  // ...
 
-    return (
-        <>
-            <div id={"NotesBox"}>
-                <Editor
-                    tinymceScriptSrc='/tinymce/tinymce.min.js'
-                    licenseKey='GPL'
-                    onInit={(_evt, editor) => editorRef.current = editor}
-                    initialValue='<p>Notes go to here... </p>'
-                    init={{
-                        height: "500px",
-                        width:"700px",
-                        selector: 'div.tinymce',
-                        plugins: [ 'quickbars' ],
-                        toolbar: false,
-                        menubar: false,
-                        inline: true,
-                    }}
-                />
-            </div>
+  return (
+    <>
+      <div className={"captureArea"}>
+        <TitleBox type={"Title"} />
+        <div className="main-area">
+          <CueBox />
 
-        </>
-    );
+          <NotesBox />
+        </div>
+        <TitleBox type={"Summary"} />
+      </div>
+      <button className={"button-1"} onClick={handleCaptureClick}>
+        Export as image
+      </button>
+      <br></br>
+      <br></br>
+
+      <div id="hints">
+        <button className="button-1" onClick={handleHideHints}>
+          Hide Hints
+        </button>
+        <p>
+          Export as image might not function properly when WebGL is disabled in
+          your Brower! Check if export works properly before entering your
+          notes.
+        </p>
+        <p>
+          As of now, you could save your progress by using browser extension
+          like{" "}
+          <a href="https://chromewebstore.google.com/detail/singlefile/mpiodijhokgodhhofbcjdecpffjipkle">
+            SingleFile
+          </a>
+          .
+        </p>
+      </div>
+    </>
+  );
 }
