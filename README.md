@@ -12,3 +12,9 @@ A tool that helps you to take cornell notes! You can export it as PNG or PDF, an
 
 # Libraries
 This project is made possible by TinyMCE, react-to-print and so on.
+
+# Known Issue
+The export function does not work and will generate blank image in browsers like LibreWolf possibly due to OpenGL settings. It's recommended to use with Chromium based browsers.
+
+# Future Plan
+I've been trying to come up with a way to save the notes and allow users to freely edit. I'm also trying to package the thing into executables on Macs and Windows. Please contact me if you have any suggestion.
