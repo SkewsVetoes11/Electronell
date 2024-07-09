@@ -3,27 +3,39 @@ import CueBox from "./components/CueBox.jsx";
 import TitleBox from "./components/TitleBox.jsx";
 import downloadjs from "downloadjs";
 import html2canvas from "html2canvas";
-import {useRef} from "react";
-import {useReactToPrint} from 'react-to-print'
+import { useRef, useEffect, useState } from "react";
+
+import { useReactToPrint } from "react-to-print";
 export default function App() {
+  const [pdfName, setPdfName] = useState("My Notes")
   const handleCaptureClick = async () => {
     const canvas = await html2canvas(document.querySelector(".captureArea"));
     const dataURL = canvas.toDataURL("image/png");
+
     var titleString =
       document.querySelector("#Title").firstChild.firstChild.textContent;
     downloadjs(dataURL, titleString, "image/png");
   };
 
+  
   const handleHideHints = () => {
     document.querySelector("#hints").style.visibility = "hidden";
   };
 
-    const componentRef = useRef();
-    const handlePrint = useReactToPrint({
-        content: () => componentRef.current
-    });
-  // ...
+  const componentRef = useRef();
 
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: pdfName,
+  });
+  // ...
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPdfName(document.querySelector("#Title").firstChild.firstChild.textContent.toString());
+    }, 1000);
+  
+    return () => clearInterval(interval);
+  }, []);
   return (
     <>
       <div ref={componentRef} className={"captureArea"}>
@@ -40,7 +52,7 @@ export default function App() {
       </button>
       <button className="button-2" onClick={handlePrint}>
         Export as PDF
-        </button>
+      </button>
 
       <br></br>
       <br></br>
