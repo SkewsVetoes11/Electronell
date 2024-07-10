@@ -18,10 +18,10 @@ export default function CueBox() {
                     onInit={(_evt, editor) => editorRef.current = editor}
                     initialValue='<p>Cues go to here..</p>'
                     init={{
-                        height: "500px",
-                        width:"100px",
+
                         selector: 'div.tinymce',
-                        plugins: [ 'quickbars' ],
+                        plugins: ["quickbars", "link", "image"],
+                        quickbars_selection_toolbar: 'styles | underline bold italic | link image',
                         toolbar: false,
                         menubar: false,
                         inline: true,

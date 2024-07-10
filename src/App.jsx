@@ -62,9 +62,15 @@ export default function App() {
           Hide Hints
         </button>
         <p>
+          Electronell works the best with Chromium based browsers.
+        </p>
+        <p>
           Export as image might not function properly when WebGL is disabled in
           your Brower! Check if export works properly before entering your
           notes.
+        </p>
+        <p>
+          Right click on a new line to add a link.
         </p>
         <p>
           As of now, you could save your progress by using browser extension
